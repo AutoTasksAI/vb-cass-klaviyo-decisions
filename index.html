@@ -304,12 +304,14 @@
 
       <!-- 1 Ask B · Cart -->
       <section class="screen" data-screen="1" aria-labelledby="b-h">
-        <div class="kicker">Ask 2 of 3 · Abandoned cart</div>
+        <div class="screen-title">Abandoned cart</div>
+        <div class="kicker">Ask 2 of 3</div>
         <div class="context">
           <div class="label">What’s going on</div>
-          <p>This is the 2026 cart recovery flow. In Klaviyo: <strong>FC | Abandoned Cart 2026</strong>. It’s built but currently manual/off, so cart abandoners get no recovery emails.</p>
-          <p>Not abandoned checkout (that’s already live and making some money). Not the old abandoned cart draft.</p>
-          <p>It already stops if they start checkout. Later cart emails still say 10% off with no real working code (same broken offer as the signup series). Josh will remove that 10% wording before you turn Cart on.</p>
+          <p>There is a cart recovery flow ready to turn on. The 2026 series for people who add to cart but leave. In Klaviyo it is called <strong>FC | Abandoned Cart 2026</strong>.</p>
+          <p>This is not abandoned checkout (that one is already live and making some money). This is not the old abandoned cart draft.</p>
+          <p>Problem: it is built but currently manual/off, so cart abandoners get no recovery emails. It already stops if they start checkout. Later cart emails still say 10% off with no real working code (same broken offer as the signup series).</p>
+          <p>Proposal: Josh removes that 10% wording, then you activate Cart when ready.</p>
         </div>
         <h2 id="b-h">OK for Josh to remove that 10% wording, then you activate Cart when ready?</h2>
         <div class="choices" role="group" aria-label="Abandoned cart 2026 decision">
@@ -323,11 +325,14 @@
 
       <!-- 2 Ask C · Offer choice -->
       <section class="screen" data-screen="2" aria-labelledby="c-h">
-        <div class="kicker">Ask 3 of 3 · Offer choice</div>
+        <div class="screen-title">Signup email offer</div>
+        <div class="kicker">Ask 3 of 3</div>
         <div class="context">
           <div class="label">What’s going on</div>
-          <p>When we fix the signup emails (the pre-purchase series, <strong>FC | Pre Purchase Welcome Flow</strong>), should those emails offer a discount or not?</p>
-          <p>This is only about that series. It is not about the $10 checkout popup.</p>
+          <p>There is a decision needed on the pre-purchase signup series before we rebuild it. Those emails currently claim a discount that does not work. In Klaviyo that series is <strong>FC | Pre Purchase Welcome Flow</strong>.</p>
+          <p>This is not about the $10 checkout popup (that is a separate live offer).</p>
+          <p>Problem: when we fix those signup emails, we need to know whether they should offer a discount.</p>
+          <p>Proposal: pick how those signup emails should handle an offer.</p>
         </div>
         <h2 id="c-h">What should those signup emails do?</h2>
         <div class="choices" role="group" aria-label="Signup email offer">
@@ -337,7 +342,7 @@
         </div>
         <label class="note-label" for="ask_c_note">Optional note</label>
         <textarea id="ask_c_note" name="ask_c_note" placeholder="Anything to add…"></textarea>
-        <p class="tiny-foot">Signup emails</p>
+        <p class="tiny-foot">FC | Pre Purchase Welcome Flow</p>
       </section>
 
       <!-- 3 We'll handle -->
