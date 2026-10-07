@@ -87,6 +87,15 @@
       margin-bottom: 14px;
       text-transform: uppercase;
     }
+    .screen-title {
+      font-size: clamp(22px, 4.2vw, 26px);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--navy);
+      margin-bottom: 8px;
+      line-height: 1.25;
+    }
+
     h2 {
       font-size: clamp(28px, 5.8vw, 36px);
       font-weight: 700;
@@ -274,6 +283,7 @@
     <main>
       <!-- 0 Ask A -->
       <section class="screen active" data-screen="0" aria-labelledby="a-h">
+        <div class="screen-title">Pre purchase welcome flow</div>
         <div class="kicker">Ask 1 of 3</div>
         <div class="context">
           <div class="label">What’s going on</div>
