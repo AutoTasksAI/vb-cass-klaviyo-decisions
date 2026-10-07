@@ -406,7 +406,8 @@
         });
       }
 
-      function updateUI() {
+      function updateUI(opts) {
+        opts = opts || {};
         screens.forEach((el) => {
           el.classList.toggle("active", Number(el.dataset.screen) === step);
         });
@@ -436,13 +437,31 @@
           btnNext.disabled = false;
         }
         syncChoices();
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        if (opts.scrollTop) {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
       }
+
+      const noteForField = {
+        ask_a: "ask_a_note",
+        ask_b: "ask_b_note",
+        ask_c: "ask_c_note",
+      };
 
       document.querySelectorAll(".choice").forEach((btn) => {
         btn.addEventListener("click", () => {
           answers[btn.dataset.field] = btn.dataset.value;
-          updateUI();
+          updateUI(); // no jump-to-top
+          const noteId = noteForField[btn.dataset.field];
+          const note = noteId ? document.getElementById(noteId) : null;
+          if (note) {
+            // Soft-scroll note into view and focus for optional comment
+            note.scrollIntoView({ behavior: "smooth", block: "nearest" });
+            // Delay focus slightly so smooth scroll isn't cancelled on some mobile browsers
+            setTimeout(() => {
+              try { note.focus({ preventScroll: true }); } catch (_) { note.focus(); }
+            }, 180);
+          }
         });
       });
 
@@ -456,7 +475,7 @@
         if (step > 0) {
           step -= 1;
           submitErr.classList.remove("show");
-          updateUI();
+          updateUI({ scrollTop: true });
         }
       });
 
@@ -471,7 +490,7 @@
         }
         if (step < 4) {
           step += 1;
-          updateUI();
+          updateUI({ scrollTop: true });
         }
       });
 
