@@ -327,8 +327,8 @@
     (function () {
       const TOTAL = 6; // screens 0..5
       const DECISION_SCREENS = new Set([1, 2, 3]);
-      // FormSubmit AJAX — first-ever submit emails josh@autotasks.co a one-time confirm link
-      const FORMSUBMIT_URL = "https://formsubmit.co/ajax/josh@autotasks.co";
+      // FormSubmit AJAX — first-ever submit emails josh@volleybird.shop a one-time confirm link
+      const FORMSUBMIT_URL = "https://formsubmit.co/ajax/josh@volleybird.shop";
       let step = 0;
       const answers = {
         ask_a: "",
@@ -475,7 +475,7 @@
             throw new Error("Submit failed (" + res.status + ")");
           }
           // Treat confirmation-needed as soft success so Cass still sees thanks;
-          // Josh must confirm josh@autotasks.co once in FormSubmit inbox.
+          // Josh must confirm josh@volleybird.shop once in FormSubmit inbox.
           step = 5;
           updateUI();
         } catch (err) {
