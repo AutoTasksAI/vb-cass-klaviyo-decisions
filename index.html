@@ -299,7 +299,7 @@
           <div class="label">What’s going on</div>
           <p>This is the 2026 cart recovery flow. In Klaviyo: <strong>FC | Abandoned Cart 2026</strong>. It’s built but currently manual/off, so cart abandoners get no recovery emails.</p>
           <p>Not abandoned checkout (that’s already live and making some money). Not the old abandoned cart draft.</p>
-          <p>It already stops if they start checkout. Later cart emails still say 10% off the same broken way the pre-purchase series does (no real code, buttons go to the wrong place). Josh will remove that 10% wording before you turn Cart on.</p>
+          <p>It already stops if they start checkout. Later cart emails still say 10% off the same broken way the signup series does (no real code, buttons go to the wrong place). Josh will remove that 10% wording before you turn Cart on.</p>
         </div>
         <h2 id="b-h">OK for Josh to remove that 10% wording, then you activate Cart when ready?</h2>
         <div class="choices" role="group" aria-label="Abandoned cart 2026 decision">
@@ -316,18 +316,18 @@
         <div class="kicker">Ask 3 of 3 · Offer choice</div>
         <div class="context">
           <div class="label">What’s going on</div>
-          <p>Offer for that same <strong>pre-purchase</strong> series only (FC | Pre Purchase Welcome Flow).</p>
-          <p>Not the live checkout FOMO popup that shows a $10 credit. Don’t force-match that.</p>
+          <p>When we fix the signup emails (the pre-purchase series, <strong>FC | Pre Purchase Welcome Flow</strong>), should those emails offer a discount or not?</p>
+          <p>This is only about that series. It is not about the $10 checkout popup.</p>
         </div>
-        <h2 id="c-h">Which offer path for that pre-purchase series?</h2>
-        <div class="choices" role="group" aria-label="Pre-purchase offer choice">
-          <button type="button" class="choice" data-field="ask_c" data-value="none">No discount for now</button>
-          <button type="button" class="choice" data-field="ask_c" data-value="real_code">Use a real working code</button>
-          <button type="button" class="choice" data-field="ask_c" data-value="wait_v2">Wait for the fuller Welcome v2 deck before deciding</button>
+        <h2 id="c-h">What should those signup emails do?</h2>
+        <div class="choices" role="group" aria-label="Signup email offer">
+          <button type="button" class="choice" data-field="ask_c" data-value="none">No discount</button>
+          <button type="button" class="choice" data-field="ask_c" data-value="real_code">Include a real discount code that works</button>
+          <button type="button" class="choice" data-field="ask_c" data-value="wait_v2">Decide later with the new Welcome redesign</button>
         </div>
         <label class="note-label" for="ask_c_note">Optional note</label>
         <textarea id="ask_c_note" name="ask_c_note" placeholder="Anything to add…"></textarea>
-        <p class="tiny-foot">Pre-purchase offer only</p>
+        <p class="tiny-foot">Signup emails</p>
       </section>
 
       <!-- 3 We'll handle -->
