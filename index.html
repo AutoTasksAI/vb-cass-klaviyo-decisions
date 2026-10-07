@@ -276,18 +276,18 @@
         <div class="kicker">Ask 1 of 3</div>
         <div class="context">
           <div class="label">What’s going on</div>
-          <p>Live Welcome is sending, but it’s getting ~0 clicks and $0 attributed.</p>
-          <p>It still promises 10% off with buttons that land on the homepage, and there’s no working discount path behind that promise. One signup path is also dead (people who didn’t come through a certain popup get nothing).</p>
-          <p>Proposal: stage the fix on a draft twin, then swap live when ready, not a silent live edit.</p>
+          <p>This is the live <strong>pre-purchase</strong> email series for people who join the list or popup before they buy. In Klaviyo: <strong>FC | Pre Purchase Welcome Flow</strong>.</p>
+          <p>Not the post-purchase buyer welcome / unboxing flow (FC | Post Purchase Flow, still draft). Not the SMS Welcome series (that one is already converting).</p>
+          <p>It’s sending but getting ~0 clicks. It still promises 10% off with buttons that land on the homepage, and one non-popup signup path is dead. Proposal: stage the fix on a draft twin, then swap live when ready.</p>
         </div>
-        <h2 id="a-h">OK to stage the Welcome fix on a draft twin, then swap live when ready?</h2>
-        <div class="choices" role="group" aria-label="Welcome decision">
+        <h2 id="a-h">OK to stage that fix on a draft twin, then swap live when ready?</h2>
+        <div class="choices" role="group" aria-label="Pre-purchase welcome decision">
           <button type="button" class="choice" data-field="ask_a" data-value="yes">Yes</button>
           <button type="button" class="choice" data-field="ask_a" data-value="no">No</button>
         </div>
         <label class="note-label" for="ask_a_note">Optional note</label>
         <textarea id="ask_a_note" name="ask_a_note" placeholder="Anything to add…"></textarea>
-        <p class="tiny-foot">Welcome series</p>
+        <p class="tiny-foot">FC | Pre Purchase Welcome Flow</p>
       </section>
 
       <!-- 1 Ask B · Cart -->
@@ -295,18 +295,18 @@
         <div class="kicker">Ask 2 of 3 · Abandoned cart</div>
         <div class="context">
           <div class="label">What’s going on</div>
-          <p>Abandoned cart is built but currently OFF (manual), so cart abandoners get no recovery emails.</p>
-          <p>It already stops if someone starts checkout (won’t double-blast with abandoned checkout).</p>
-          <p>Before turning it on: scrub leftover “10% off” language still sitting in later emails.</p>
+          <p>This is the 2026 cart recovery flow. In Klaviyo: <strong>FC | Abandoned Cart 2026</strong>. It’s built but currently manual/off, so cart abandoners get no recovery emails.</p>
+          <p>Not abandoned checkout (that’s already live and making some money). Not the old abandoned cart draft.</p>
+          <p>It already exits if they start checkout. Before turning it on: scrub leftover “10% off” language in later emails, then you activate.</p>
         </div>
         <h2 id="b-h">OK for Josh to scrub that leftover 10% language, then you activate Cart when ready?</h2>
-        <div class="choices" role="group" aria-label="Cart decision">
+        <div class="choices" role="group" aria-label="Abandoned cart 2026 decision">
           <button type="button" class="choice" data-field="ask_b" data-value="yes">Yes</button>
           <button type="button" class="choice" data-field="ask_b" data-value="no">No</button>
         </div>
         <label class="note-label" for="ask_b_note">Optional note</label>
         <textarea id="ask_b_note" name="ask_b_note" placeholder="Anything to add…"></textarea>
-        <p class="tiny-foot">Abandoned cart</p>
+        <p class="tiny-foot">FC | Abandoned Cart 2026</p>
       </section>
 
       <!-- 2 Ask C · Offer choice -->
@@ -314,18 +314,18 @@
         <div class="kicker">Ask 3 of 3 · Offer choice</div>
         <div class="context">
           <div class="label">What’s going on</div>
-          <p>This is separate from the checkout $10 FOMO popup. Don’t force-match that.</p>
-          <p>While fixing Welcome, what offer should it use?</p>
+          <p>Offer for that same <strong>pre-purchase</strong> series only (FC | Pre Purchase Welcome Flow).</p>
+          <p>Not the live checkout FOMO popup that shows a $10 credit. Don’t force-match that.</p>
         </div>
-        <h2 id="c-h">Which Welcome offer path?</h2>
-        <div class="choices" role="group" aria-label="Welcome offer">
+        <h2 id="c-h">Which offer path for that pre-purchase series?</h2>
+        <div class="choices" role="group" aria-label="Pre-purchase offer choice">
           <button type="button" class="choice" data-field="ask_c" data-value="none">No discount for now</button>
           <button type="button" class="choice" data-field="ask_c" data-value="real_code">Use a real working code</button>
           <button type="button" class="choice" data-field="ask_c" data-value="wait_v2">Wait for the fuller Welcome v2 deck before deciding</button>
         </div>
         <label class="note-label" for="ask_c_note">Optional note</label>
         <textarea id="ask_c_note" name="ask_c_note" placeholder="Anything to add…"></textarea>
-        <p class="tiny-foot">Welcome offer</p>
+        <p class="tiny-foot">Pre-purchase offer only</p>
       </section>
 
       <!-- 3 We'll handle -->
@@ -334,12 +334,12 @@
         <h2 id="info-h">We’ll handle</h2>
         <ul class="info-list">
           <li>
-            <div class="t">Checkout link fallback</div>
-            <p>Harden the empty checkout-link fallback on abandoned checkout (technical; often works already).</p>
+            <div class="t">Abandoned checkout link fallback</div>
+            <p>Harden the empty checkout-link fallback on abandoned <strong>checkout</strong> (not cart). Technical; often works already.</p>
           </li>
           <li>
-            <div class="t">Triple Pixel twin</div>
-            <p>Stays. Filters already prevent the usual overlap.</p>
+            <div class="t">Triple Pixel checkout twin</div>
+            <p>Stays on the checkout twin. Filters already prevent the usual overlap.</p>
           </li>
         </ul>
         <p class="sub">Tap Submit to send your answers.</p>
