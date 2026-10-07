@@ -16,7 +16,6 @@
       --amber: #C47A1A;
       --green: #2D5A38;
       --green-bg: #E8F2EA;
-      --radius: 16px;
       --shadow: 0 8px 32px rgba(10, 41, 52, 0.08);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -67,7 +66,8 @@
     main {
       flex: 1;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
+      padding-top: 8px;
     }
     .screen {
       display: none;
@@ -87,14 +87,36 @@
       margin-bottom: 14px;
       text-transform: uppercase;
     }
-    h1, h2 {
-      font-size: clamp(32px, 6.5vw, 40px);
+    h2 {
+      font-size: clamp(28px, 5.8vw, 36px);
       font-weight: 700;
       letter-spacing: -0.02em;
-      line-height: 1.15;
-      margin-bottom: 18px;
+      line-height: 1.18;
+      margin-bottom: 16px;
       color: var(--navy);
     }
+    .context {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow);
+    }
+    .context .label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+    .context p {
+      font-size: clamp(17px, 3.4vw, 20px);
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .context p:last-child { margin-bottom: 0; }
     .body {
       font-size: clamp(22px, 4.2vw, 26px);
       color: var(--ink);
@@ -233,6 +255,12 @@
       display: none;
     }
     .err.show { display: block; }
+    .tiny-foot {
+      margin-top: 28px;
+      font-size: 12px;
+      color: #A0A6AD;
+      letter-spacing: 0.02em;
+    }
   </style>
 </head>
 <body>
@@ -243,73 +271,83 @@
     </header>
 
     <main>
-      <!-- 0 Intro -->
-      <section class="screen active" data-screen="0" aria-labelledby="intro-h">
-        <div class="kicker">For Cass</div>
-        <h1 id="intro-h">Three Klaviyo decisions</h1>
-        <p class="body">No live changes until you answer.</p>
-        <p class="sub">One screen per ask. Optional note on each. Josh applies only what you clear.</p>
-      </section>
-
-      <!-- 1 Ask A -->
-      <section class="screen" data-screen="1" aria-labelledby="a-h">
-        <div class="kicker">A · Welcome</div>
-        <h2 id="a-h">Stop promising 10% with nowhere to click, and fix the dead signup path</h2>
-        <p class="sub">Stage on a draft twin, then swap live when ready.</p>
+      <!-- 0 Ask A · Welcome -->
+      <section class="screen active" data-screen="0" aria-labelledby="a-h">
+        <div class="kicker">Ask 1 of 3 · Welcome</div>
+        <div class="context">
+          <div class="label">What’s going on</div>
+          <p>Live Welcome is sending, but it’s getting ~0 clicks and $0 attributed.</p>
+          <p>It still promises 10% off with buttons that land on the homepage — and there’s no working discount path behind that promise. One signup path is also dead (people who didn’t come through a certain popup get nothing).</p>
+          <p>Proposal: stage the fix on a draft twin, then swap live when ready — not a silent live edit.</p>
+        </div>
+        <h2 id="a-h">OK to stage the Welcome fix on a draft twin, then swap live when ready?</h2>
         <div class="choices" role="group" aria-label="Welcome decision">
           <button type="button" class="choice" data-field="ask_a" data-value="yes">Yes</button>
           <button type="button" class="choice" data-field="ask_a" data-value="no">No</button>
         </div>
         <label class="note-label" for="ask_a_note">Optional note</label>
         <textarea id="ask_a_note" name="ask_a_note" placeholder="Anything to add…"></textarea>
+        <p class="tiny-foot">Welcome series</p>
       </section>
 
-      <!-- 2 Ask B -->
-      <section class="screen" data-screen="2" aria-labelledby="b-h">
-        <div class="kicker">B · Cart</div>
-        <h2 id="b-h">Turn abandoned cart back on after scrubbing leftover 10% language</h2>
-        <p class="sub">You activate when ready.</p>
+      <!-- 1 Ask B · Cart -->
+      <section class="screen" data-screen="1" aria-labelledby="b-h">
+        <div class="kicker">Ask 2 of 3 · Abandoned cart</div>
+        <div class="context">
+          <div class="label">What’s going on</div>
+          <p>Abandoned cart is built but currently OFF (manual), so cart abandoners get no recovery emails.</p>
+          <p>It already stops if someone starts checkout (won’t double-blast with abandoned checkout).</p>
+          <p>Before turning it on: scrub leftover “10% off” language still sitting in later emails.</p>
+        </div>
+        <h2 id="b-h">OK for Josh to scrub that leftover 10% language, then you activate Cart when ready?</h2>
         <div class="choices" role="group" aria-label="Cart decision">
           <button type="button" class="choice" data-field="ask_b" data-value="yes">Yes</button>
           <button type="button" class="choice" data-field="ask_b" data-value="no">No</button>
         </div>
         <label class="note-label" for="ask_b_note">Optional note</label>
         <textarea id="ask_b_note" name="ask_b_note" placeholder="Anything to add…"></textarea>
+        <p class="tiny-foot">Abandoned cart</p>
       </section>
 
-      <!-- 3 Ask C -->
-      <section class="screen" data-screen="3" aria-labelledby="c-h">
-        <div class="kicker">C · Welcome offer</div>
+      <!-- 2 Ask C · Welcome offer -->
+      <section class="screen" data-screen="2" aria-labelledby="c-h">
+        <div class="kicker">Ask 3 of 3 · Welcome offer</div>
+        <div class="context">
+          <div class="label">What’s going on</div>
+          <p>This is separate from the checkout $10 FOMO popup — don’t force-match that.</p>
+          <p>While fixing Welcome, what offer should it use?</p>
+        </div>
         <h2 id="c-h">Which Welcome offer path?</h2>
         <div class="choices" role="group" aria-label="Welcome offer">
           <button type="button" class="choice" data-field="ask_c" data-value="none">No discount for now</button>
-          <button type="button" class="choice" data-field="ask_c" data-value="real_code">Use a real code</button>
-          <button type="button" class="choice" data-field="ask_c" data-value="wait_v2">Wait for the full Welcome v2</button>
+          <button type="button" class="choice" data-field="ask_c" data-value="real_code">Use a real working code</button>
+          <button type="button" class="choice" data-field="ask_c" data-value="wait_v2">Wait for the fuller Welcome v2 deck before deciding</button>
         </div>
         <label class="note-label" for="ask_c_note">Optional note</label>
         <textarea id="ask_c_note" name="ask_c_note" placeholder="Anything to add…"></textarea>
+        <p class="tiny-foot">Welcome offer</p>
       </section>
 
-      <!-- 4 We'll handle -->
-      <section class="screen" data-screen="4" aria-labelledby="info-h">
-        <div class="kicker">Info only</div>
-        <h2 id="info-h">We'll handle</h2>
+      <!-- 3 We'll handle -->
+      <section class="screen" data-screen="3" aria-labelledby="info-h">
+        <div class="kicker">Info only · No decision</div>
+        <h2 id="info-h">We’ll handle</h2>
         <ul class="info-list">
           <li>
             <div class="t">Checkout link fallback</div>
-            <p>Harden the empty checkout-link fallback.</p>
+            <p>Harden the empty checkout-link fallback on abandoned checkout (technical; often works already).</p>
           </li>
           <li>
             <div class="t">Triple Pixel twin</div>
-            <p>Stays. Filters are fine.</p>
+            <p>Stays. Filters already prevent the usual overlap.</p>
           </li>
         </ul>
-        <p class="sub">No decision needed. Tap Submit to send your answers.</p>
+        <p class="sub">Tap Submit to send your answers.</p>
         <p class="err" id="submit-err" role="alert"></p>
       </section>
 
-      <!-- 5 Thanks -->
-      <section class="screen" data-screen="5" aria-labelledby="thanks-h">
+      <!-- 4 Thanks -->
+      <section class="screen" data-screen="4" aria-labelledby="thanks-h">
         <div class="thanks-icon" aria-hidden="true">✓</div>
         <h2 id="thanks-h">Got it. Thank you.</h2>
         <p class="body">Your answers are in. Josh will apply only what you cleared.</p>
@@ -325,9 +363,7 @@
 
   <script>
     (function () {
-      const TOTAL = 6; // screens 0..5
-      const DECISION_SCREENS = new Set([1, 2, 3]);
-      // FormSubmit AJAX — first-ever submit emails josh@volleybird.shop a one-time confirm link
+      const DECISION_SCREENS = new Set([0, 1, 2]);
       const FORMSUBMIT_URL = "https://formsubmit.co/ajax/josh@volleybird.shop";
       let step = 0;
       const answers = {
@@ -345,7 +381,8 @@
       const btnNext = document.getElementById("btn-next");
       const submitErr = document.getElementById("submit-err");
 
-      const DOT_COUNT = 5;
+      // 4 dots: Ask A, Ask B, Ask C, We'll handle
+      const DOT_COUNT = 4;
       for (let i = 0; i < DOT_COUNT; i++) {
         const d = document.createElement("span");
         d.className = "dot";
@@ -354,9 +391,9 @@
       }
 
       function fieldForScreen(s) {
-        if (s === 1) return "ask_a";
-        if (s === 2) return "ask_b";
-        if (s === 3) return "ask_c";
+        if (s === 0) return "ask_a";
+        if (s === 1) return "ask_b";
+        if (s === 2) return "ask_c";
         return null;
       }
 
@@ -373,22 +410,21 @@
         });
         progress.querySelectorAll(".dot").forEach((d) => {
           const i = Number(d.dataset.i);
-          d.classList.toggle("on", i === Math.min(step, DOT_COUNT - 1) && step < 5);
-          d.classList.toggle("done", i < step && step < 5);
-          if (step >= 5) {
+          d.classList.toggle("on", i === Math.min(step, DOT_COUNT - 1) && step < 4);
+          d.classList.toggle("done", i < step && step < 4);
+          if (step >= 4) {
             d.classList.add("done");
             d.classList.remove("on");
           }
         });
 
-        const onThanks = step === 5;
+        const onThanks = step === 4;
         document.getElementById("nav").style.display = onThanks ? "none" : "flex";
         btnBack.hidden = step === 0;
         btnBack.disabled = false;
 
         let nextLabel = "Next";
-        if (step === 4) nextLabel = "Submit";
-        if (step === 0) nextLabel = "Start";
+        if (step === 3) nextLabel = "Submit";
         btnNext.textContent = nextLabel;
 
         const field = fieldForScreen(step);
@@ -427,11 +463,11 @@
           const f = fieldForScreen(step);
           if (!answers[f]) return;
         }
-        if (step === 4) {
+        if (step === 3) {
           await submitForm();
           return;
         }
-        if (step < 5) {
+        if (step < 4) {
           step += 1;
           updateUI();
         }
@@ -470,13 +506,10 @@
           } catch (_) {
             data = null;
           }
-          // FormSubmit returns success even on first-activation (confirm email sent)
-          if (!res.ok && (!data || data.success !== "true" && data.ok !== true)) {
+          if (!res.ok && (!data || (data.success !== "true" && data.ok !== true))) {
             throw new Error("Submit failed (" + res.status + ")");
           }
-          // Treat confirmation-needed as soft success so Cass still sees thanks;
-          // Josh must confirm josh@volleybird.shop once in FormSubmit inbox.
-          step = 5;
+          step = 4;
           updateUI();
         } catch (err) {
           submitErr.textContent = "Could not send. Check your connection and try again.";
